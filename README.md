@@ -154,11 +154,11 @@ Now you can disconnect the XIAO ESP32C3 from the reRouter CM4 1432 and just powe
 
 - **Step 18.** Click **SUBMIT**
 
-<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/27.png" width="700">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/27.png" width="300">
 
 - **Step 19.** Click **FINISH**
 
-<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/28.png" width="700">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/28.png" width="300">
 
 # Grove Modules with ESPHome and Home Assistant
 
