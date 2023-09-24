@@ -1,7 +1,7 @@
 # ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3
 
 ## Introduction
-
+<img src="https://github.com/Zachay-NAU/XIAO_ESP32C3_Wifi_Tracker/blob/main/da36e680de94231642f0c7e663b5163.png" width="200">
 This wiki will walkthrough step-by-step on how to connect [Seeed Studio XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) with ESPHome running on Home Assistant and send the sensor data/ control devices after connecting Grove modules to XIAO ESP32C3. So, let's get started!
 
 ## What is ESPHome?
