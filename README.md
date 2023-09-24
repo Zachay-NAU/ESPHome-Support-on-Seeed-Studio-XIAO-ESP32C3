@@ -157,6 +157,8 @@ Now we will select 6 Grove modules from the above table and explain how they can
 
 ## Grove - Temperature and Humidity Sensor (BME680)
 
+The Grove-Temperature&Humidity&Pressure&Gas Sensor(BME680) is a multiple function sensor which can measure temperature, pressure, humidity and gas at the same time. It is based on the BME680 module and you can use this sensor in your GPS, IoT devices or other device which needs those four parameters. [Click here](https://www.seeedstudio.com/Grove-Temperature%2C-Humidity%2C-Pressure-and-Gas-Sensor-(BME680)-p-3109.html) for the purchase.
+
 ### Setup Configuration
 
 - **Step 1.** Connect Grove - [Temperature, Humidity, Pressure and Gas Sensor (BME680)](https://www.seeedstudio.com/Grove-Temperature-Humidity-Pressure-and-Gas-Sensor-for-Arduino-BME680.html) to one of the I2C connectors on the Seeed Studio Expansion Base for XIAO
@@ -244,15 +246,173 @@ Now your Home Assistant dashboard will look like below
 
 - Now your dashboard will look like below
 
+## Grove - Temperature and Humidity Sensor (BME680)
+
+The SGP41 digital gas sensor uses Sensirion's CMOSens® technology, which offers a complete and easy-to-use sensor system on a single chip. It can measure the concentration of volatile organic compounds (VOCs) and nitrogen oxides (NOx) in indoor air and provides digital output signals. Additionally, this sensor has outstanding long-term stability and lifetime. [Click here](https://www.seeedstudio.com/Grove-Air-Quality-Sensor-SGP41-p-5687.html?queryID=3ac9c3a1ed9e1a56a66b142e8282868a&objectID=5687&indexName=bazaar_retailer_products) for the purchase.
+
+### Setup Configuration
+
+- **Step 1.** Connect Grove - [Smart Air Quality Sensor (SGP41)](https://www.seeedstudio.com/Grove-Air-Quality-Sensor-SGP41-p-5687.html?queryID=3ac9c3a1ed9e1a56a66b142e8282868a&objectID=5687&indexName=bazaar_retailer_products) to one of the I2C connectors on the Seeed Studio Expansion Base for XIAO
+
+- **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
+
+```
+esphome:
+  name: xiao-esp32c3
+  platformio_options:
+   board_build.flash_mode: dio
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+# Enable logging
+logger:
+ hardware_uart: UART0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: "UMASS fried chicken"
+  password: "Zacharyloveschicken"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Esp32C3 Fallback Hotspot"
+    password: "MoLTqZUvHwWI"
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO8
+  mosi_pin: GPIO10
+  miso_pin: GPIO9
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+  frequency: 1MHz
+
+sensor:
+  - platform: sgp4x
+    voc:
+      id: sgp41_voc
+      name: "VOC Index"
+    nox:
+      id: sgp41_nox
+      name: "NOx Index"
+
+```
+- **Step 3.** Example With Compensation
+compensation (Optional): The block containing sensors used for compensation. If not set defaults will be used.
+We will use the Temperature and Humidity Sensor (BME680) compensate for Smart Air Quality Sensor (SGP41).
+Here is the updated **xiao-esp32c3.yaml** file:
+
+```
+esphome:
+  name: xiao-esp32c3
+  platformio_options:
+   board_build.flash_mode: dio
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+# Enable logging
+logger:
+ hardware_uart: UART0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: "UMASS fried chicken"
+  password: "Zacharyloveschicken"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Esp32C3 Fallback Hotspot"
+    password: "MoLTqZUvHwWI"
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO8
+  mosi_pin: GPIO10
+  miso_pin: GPIO9
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+  frequency: 1MHz
+sensor:
+  - platform: bme680
+    temperature:
+      id:  bme680_temp
+      name: "BME680 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "BME680 Pressure"
+    humidity:
+      id: bme680_hum
+      name: "BME680 Humidity"
+    gas_resistance:
+      name: "BME680 Gas Resistance"
+    address: 0x76
+  
+  - platform: sgp4x
+    voc:
+      name: "VOC Index"
+    nox:
+      name: "NOx Index"
+    compensation:
+      humidity_source: bme680_hum
+      temperature_source: bme680_temp
+```
+
+### Visualize on Dashboard
+
+- **Step 1.** On the Overview page of Home Assistant, click the 3 dots and click **Edit Dashboard**
+
+- **Step 2.** Click **+ ADD CARD**
+
+- **Step 3.** Select **By ENTITY**, type **NOx Index** and select the **check box** next to **NOx Index**
+
+- **Step 4.** Repeat the same for **VOC Index**
+
+- **Step 5.** Click **CONTINUE**
+
+- **Step 6.** Click **ADD TO DASHBOARD**
+
+Now your Home Assistant dashboard will look like below
+
+- **Step 7.** You can also visualize sensor data as gauges. Click **Gauge** under **BY CARD**
+
+- **Step 8.** Select **NOx Index** from the drop-down menu
+
+- **Step 9.** Click **SAVE**
+
+- **Step 10.** Repeat the same for **VOC Index**
+
+- Now your dashboard will look like below
 
 
-
-
-
-
-
-
-
+## Grove - Temperature and Humidity Sensor (BME680)
 
 
 
