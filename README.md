@@ -90,7 +90,7 @@ wifi:
 
 - **Step 11.** Select the connected port. It is likely to be ```/dev/ttyACM1 because /dev/ttyACM0``` is connected to the reRouter CM4 1432
 
-Now it will download all the necessary board packages and flash the ESPHome firmware into the XIAO ESP32C3. If the flashing is successful, you will see the following output
+Now it will download all the necessary board packages and flash the ESPHome firmware into the XIAO ESP32C3. If the flashing is successful, you will see the following output. If you see something error, try to restart your xiao esp32c3 or enter bootloader mode by holding on the BOOT BUTTON and connect XIAO ESP32C3.
 
 - **Step 12.** The above window displays the real-time logs from the connected board. Close it by clicking **STOP**
 
@@ -384,32 +384,11 @@ sensor:
       humidity_source: bme680_hum
       temperature_source: bme680_temp
 ```
+**Note:** This sensor will cost 90 circles for collecting enough data samples and warning cannot be avoided so far.
 
 ### Visualize on Dashboard
 
-- **Step 1.** On the Overview page of Home Assistant, click the 3 dots and click **Edit Dashboard**
-
-- **Step 2.** Click **+ ADD CARD**
-
-- **Step 3.** Select **By ENTITY**, type **NOx Index** and select the **check box** next to **NOx Index**
-
-- **Step 4.** Repeat the same for **VOC Index**
-
-- **Step 5.** Click **CONTINUE**
-
-- **Step 6.** Click **ADD TO DASHBOARD**
-
-Now your Home Assistant dashboard will look like below
-
-- **Step 7.** You can also visualize sensor data as gauges. Click **Gauge** under **BY CARD**
-
-- **Step 8.** Select **NOx Index** from the drop-down menu
-
-- **Step 9.** Click **SAVE**
-
-- **Step 10.** Repeat the same for **VOC Index**
-
-- Now your dashboard will look like below
+See before.
 
 
 ## Grove - Analog Microphone
@@ -541,13 +520,20 @@ binary_sensor:
 ```
 
 ### Visualize on Dashboard
+
 See before.
 
 ## Expansion Base for XIAO - SSD1306
 
 ### Setup Configuration
 
-- **Step 1.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
+- **Step 1.** Download fond files for display, [click here](https://esphome.io/components/display/index.html#fonts) for a reference
+
+- **Step 2.** Install "File editor" in **Setting** >>> **Add-ons** >>> **File editor**
+
+- **Step 3.** Click **File editor** >>> Enter the path: **config/esphome** >>> **uoload** your fond file
+
+- **Step 4.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 ```
 esphome:
   name: xiao-esp32c3
