@@ -543,6 +543,100 @@ binary_sensor:
 ### Visualize on Dashboard
 See before.
 
+## Expansion Base for XIAO - SSD1306
+
+### Setup Configuration
+
+- **Step 1.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
+```
+esphome:
+  name: xiao-esp32c3
+  platformio_options:
+   board_build.flash_mode: dio
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+# Enable logging
+logger:
+ hardware_uart: UART0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: "UMASS fried chicken"
+  password: "Zacharyloveschicken"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Esp32C3 Fallback Hotspot"
+    password: "MoLTqZUvHwWI"
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO8
+  mosi_pin: GPIO10
+  miso_pin: GPIO9
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+  frequency: 1MHz
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    lambda: |-
+      it.print(0, 0, id(font), "Wi-fi Connected");
+
+sensor:
+  - platform: bme680
+    temperature:
+      id:  bme680_temp
+      name: "BME680 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "BME680 Pressure"
+    humidity:
+      id: bme680_hum
+      name: "BME680 Humidity"
+    gas_resistance:
+      name: "BME680 Gas Resistance"
+    address: 0x76
+  
+  - platform: sgp4x
+    voc:
+      name: "VOC Index"
+    nox:
+      name: "NOx Index"
+    compensation:
+      humidity_source: bme680_hum
+      temperature_source: bme680_temp
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO20
+    name: "PIR Sensor"
+    device_class: motion
+    
+  - platform: gpio
+    pin: GPIO2
+    name: "Sound level"
+    device_class: sound
+```
+ You can explore more about the display component houses ESPHome’s powerful rendering and display engine [by clicking here.](https://esphome.io/components/display/#display-engine)
+
 
 
 
