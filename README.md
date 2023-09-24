@@ -26,11 +26,11 @@ ESPHome is available as a **Home Assistant Add-On** and can simply be installed 
 
 - **Step 2.** Once you see the following pop-up, click **OPEN LINK**
 
-<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/5.png" width="700">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/5.png" width="300">
 
 - **Step 3.** Click **INSTALL**
 
-<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/6.png" width="700">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/6.png" width="300">
 
 - **Step 4.** Enable all the options and click **START**
 
