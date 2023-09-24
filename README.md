@@ -205,13 +205,15 @@ Now we will select 6 Grove modules from the above table and explain how they can
 
 ## Grove - Temperature and Humidity Sensor (BME680)
 
-<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/30.png" width="700">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/30.jpg" width="700">
 
 The Grove-Temperature&Humidity&Pressure&Gas Sensor(BME680) is a multiple function sensor which can measure temperature, pressure, humidity and gas at the same time. It is based on the BME680 module and you can use this sensor in your GPS, IoT devices or other device which needs those four parameters. [Click here](https://www.seeedstudio.com/Grove-Temperature%2C-Humidity%2C-Pressure-and-Gas-Sensor-(BME680)-p-3109.html) for the purchase.
 
 ### Setup Configuration
 
 - **Step 1.** Connect Grove - [Temperature, Humidity, Pressure and Gas Sensor (BME680)](https://www.seeedstudio.com/Grove-Temperature-Humidity-Pressure-and-Gas-Sensor-for-Arduino-BME680.html) to one of the I2C connectors on the Seeed Studio Expansion Base for XIAO
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/31.png" width="700">
 
 - **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 
@@ -274,9 +276,15 @@ You can learn more about the [BME680 component](https://esphome.io/components/se
 
 - **Step 1.** On the Overview page of Home Assistant, click the 3 dots and click **Edit Dashboard**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/31.png" width="700">
+
 - **Step 2.** Click **+ ADD CARD**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/32.png" width="700">
+
 - **Step 3.** Select **By ENTITY**, type **temperature** and select the **check box** next to **Temperature**
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/33.png" width="700">
 
 - **Step 4.** Repeat the same for **Humidity**, **Gas Resitance** and **Pressure**
 
@@ -286,9 +294,15 @@ You can learn more about the [BME680 component](https://esphome.io/components/se
 
 Now your Home Assistant dashboard will look like below
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/34.png" width="700">
+
 - **Step 7.** You can also visualize sensor data as gauges. Click **Gauge** under **BY CARD**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/35.png" width="700">
+
 - **Step 8.** Select **Temperature** from the drop-down menu
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/36.png" width="700">
 
 - **Step 9.** Click **SAVE**
 
@@ -296,13 +310,17 @@ Now your Home Assistant dashboard will look like below
 
 - Now your dashboard will look like below
 
-## Grove - Temperature and Humidity Sensor (BME680)
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/37.png" width="700">
+
+## Grove -Smart Air Quality Sensor (SGP41)
 
 The SGP41 digital gas sensor uses Sensirion's CMOSens® technology, which offers a complete and easy-to-use sensor system on a single chip. It can measure the concentration of volatile organic compounds (VOCs) and nitrogen oxides (NOx) in indoor air and provides digital output signals. Additionally, this sensor has outstanding long-term stability and lifetime. [Click here](https://www.seeedstudio.com/Grove-Air-Quality-Sensor-SGP41-p-5687.html?queryID=3ac9c3a1ed9e1a56a66b142e8282868a&objectID=5687&indexName=bazaar_retailer_products) for the purchase.
 
 ### Setup Configuration
 
 - **Step 1.** Connect Grove - [Smart Air Quality Sensor (SGP41)](https://www.seeedstudio.com/Grove-Air-Quality-Sensor-SGP41-p-5687.html?queryID=3ac9c3a1ed9e1a56a66b142e8282868a&objectID=5687&indexName=bazaar_retailer_products) to one of the I2C connectors on the Seeed Studio Expansion Base for XIAO
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/38.jpg" width="700">
 
 - **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 
@@ -436,10 +454,13 @@ sensor:
 ```
 **Note:** This sensor will cost 90 circles for collecting enough data samples and warning cannot be avoided so far.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/38.png" width="700">
+
 ### Visualize on Dashboard
 
 See before.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/39.png" width="700">
 
 ## Grove - Analog Microphone
 
@@ -448,6 +469,8 @@ The Grove - Analog Microphone is a based on high-performance SiSonic MEMS techno
 ### Setup Configuration
 
 - **Step 1.** Connect Grove - [Analog Microphone](https://www.seeedstudio.com/Grove-Analog-Microphone-p-4593.html) to the A0 connector on the Seeed Studio Expansion Base for XIAO
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/40.png" width="700">
 
 - **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 ```
@@ -505,7 +528,10 @@ binary_sensor:
 You can check more information about [Binary Sensor Component](https://esphome.io/components/binary_sensor/index.html#binary-sensor-component)
 
 ### Visualize on Dashboard
+
 See before.
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/41.png" width="700">
 
 ## Grove - Digital PIR Sensor
 
@@ -514,6 +540,8 @@ PIR sensor is an IR sensor to detect human motions. This Grove Digital PIR Senso
 ### Setup Configuration
 
 - **Step 1.** Connect [Grove - Digital PIR Sensor](https://wiki.seeedstudio.com/Grove-Digital-PIR-Sensor/) to the D7 connector on the Seeed Studio Expansion Base for XIAO
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/42.jpg" width="700">
 
 - **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 
@@ -573,6 +601,8 @@ binary_sensor:
 
 See before.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/43.png" width="700">
+
 ## Expansion Base for XIAO - SSD1306
 
 ### Setup Configuration
@@ -581,7 +611,11 @@ See before.
 
 - **Step 2.** Install "File editor" in **Setting** >>> **Add-ons** >>> **File editor**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/44.png" width="700">
+
 - **Step 3.** Click **File editor** >>> Enter the path: **config/esphome** >>> **uoload** your fond file
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/45.png" width="700">
 
 - **Step 4.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
 ```
@@ -672,6 +706,8 @@ binary_sensor:
     device_class: sound
 ```
  You can explore more about the display component houses ESPHome’s powerful rendering and display engine [by clicking here.](https://esphome.io/components/display/#display-engine)
+ 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/46.png" width="700">
 
 
 
