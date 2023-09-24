@@ -1,10 +1,12 @@
 # ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3
 
 ## Introduction
-<img src="https://github.com/Zachay-NAU/XIAO_ESP32C3_Wifi_Tracker/blob/main/da36e680de94231642f0c7e663b5163.png" width="200">
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/1.png" width="700">
+
 This wiki will walkthrough step-by-step on how to connect [Seeed Studio XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) with ESPHome running on Home Assistant and send the sensor data/ control devices after connecting Grove modules to XIAO ESP32C3. So, let's get started!
 
 ## What is ESPHome?
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/2.png" width="700">
 
 [ESPHome](https://esphome.io/) is a tool which aims to make managing your ESP boards as simple as possible. It reads in a YAML configuration file and creates custom firmware which it installs on your ESP device. Devices or sensors added in ESPHome’s configuration will automatically show up in Home Assistant’s UI.
 
@@ -16,42 +18,69 @@ Make sure you already have Home Assistant up and running. You can follow [this w
 
 ESPHome is available as a **Home Assistant Add-On** and can simply be installed via the add-on store.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/3.png" width="700">
+
 - **Step 1.** To quickly setup ESPHome on Home Asssistant, click the below button
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/4.png" width="700">
 
 - **Step 2.** Once you see the following pop-up, click **OPEN LINK**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/5.png" width="700">
+
 - **Step 3.** Click **INSTALL**
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/6.png" width="700">
 
 - **Step 4.** Enable all the options and click **START**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/7.png" width="700">
+
 - **Step 5.** Click **OPEN WEB UI** or **ESPHOME from the side-panel**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/8.png" width="700">
+
 You will see the following window if ESPHome is successfully loaded
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/9.png" width="700">
 
 ## Add Seeed Studio XIAO ESP32C3 to ESPHome
 
 - **Step 1.** Click **+ NEW DEVICE**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/10.png" width="700">
+
 - **Step 2.** Click CONTINUE
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/11.png" width="700">
 
 - **Step 3.** Enter a **Name** for the device and enter WiFi credentials such as **Network name** and **Password**. Then click **NEXT**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/12.png" width="700">
+
 - **Step 4.** Select **ESP32-C3** and click
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/13.png" width="700">
 
 - **Step 5.** Click **SKIP** because we will configure this board manually
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/14.png" width="700">
+
 - **Step 6.** Click **EDIT** under the newly created board
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/15.png" width="700">
+
 - **Step 7.** This will open a **YAML** file and this file will be used to set all the board configurations. Edit the content under **esp32** as follows
-
-
-
 
 **Note:** Here we are using the latest version of [Arduino core](https://github.com/espressif/arduino-esp32/releases) for ESP32 and [ESP32 support for PlatformIO](https://github.com/platformio/platform-espressif32/releases)
 
 - **Step 8.** Click **SAVE** and then click **INSTALL**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/16.png" width="700">
+
 - **Step 9.** Connect one end of a USB Type-C cable to Seeed Studio XIAO ESP32C3 and the other end to one of the USB ports on the reRouter CM4 1432
+- 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/17.png" width="700">
 
 ``` 
 esphome:
@@ -87,38 +116,57 @@ wifi:
 
 - **Step 10.** Click **Plug into the computer running ESPHome Dashboard**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/18.png" width="700">
 
 - **Step 11.** Select the connected port. It is likely to be ```/dev/ttyACM1 because /dev/ttyACM0``` is connected to the reRouter CM4 1432
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/19.png" width="700">
+
 Now it will download all the necessary board packages and flash the ESPHome firmware into the XIAO ESP32C3. If the flashing is successful, you will see the following output. If you see something error, try to restart your xiao esp32c3 or enter bootloader mode by holding on the BOOT BUTTON and connect XIAO ESP32C3.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/20.png" width="700">
+
 - **Step 12.** The above window displays the real-time logs from the connected board. Close it by clicking **STOP**
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/21.png" width="700">
 
 - **Step 13.** If you see the board status as **ONLINE**, that means the board is successful connected to WiFi
 
 Now you can disconnect the XIAO ESP32C3 from the reRouter CM4 1432 and just power it via a USB cable. This is because from now on, if you want to flash firmware to the XIAO ESP32C3, you can simply do it OTA without connecting to the X86 board via a USB cable.
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/22.png" width="700">
+
 - **Step 14.** Click the **three dots** and click **Install**
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/23.png" width="700">
 
 - **Step 15.** Select **Wirelessly** and it will push the changes to the board wirelessly
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/24.png" width="700">
+
 - **Step 16.** Go to **Settings** and select **Devices & Services**
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/25.png" width="700">
 
 - **Step 17.** You will see **ESPHome** as a discovered integration. Click **CONFIGURE**
 
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/26.png" width="700">
+
 - **Step 18.** Click **SUBMIT**
 
-Here it will ask for the encryption key you have in your configuration for xiao-esp32c3
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/27.png" width="700">
 
-- **Step 19.** Go back to **xiao-esp32c3.yaml**, copy the encryption key, paste inside the above dialog box and click **SUBMIT**
+- **Step 19.** Click **FINISH**
 
-- **Step 20.** Click **FINISH**
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/28.png" width="700">
 
 # Grove Modules with ESPHome and Home Assistant
 
 Now we will connect Grove modules to Seeed Studio XIAO ESP32C3 so that we can display sensor data or control the devices using Home Assistant!
 
 ## Connect Grove Modules to XIAO ESP32C3
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/29.png" width="700">
 
 In order to use Grove modules with Seeed Studio XIAO ESP32C3, we will use a [Seeed Studio Expansion Base for XIAO](https://www.seeedstudio.com/Seeeduino-XIAO-Expansion-board-p-4746.html) and connect XIAO ESP32C3 on it.
 
@@ -156,6 +204,8 @@ Check [here](https://esphome.io/components/sensor/index.html#see-also)
 Now we will select 6 Grove modules from the above table and explain how they can be connected with ESPHome and Home Assistant.
 
 ## Grove - Temperature and Humidity Sensor (BME680)
+
+<img src="https://github.com/Zachay-NAU/ESPHome-Support-on-Seeed-Studio-XIAO-ESP32C3/blob/main/pictures/30.png" width="700">
 
 The Grove-Temperature&Humidity&Pressure&Gas Sensor(BME680) is a multiple function sensor which can measure temperature, pressure, humidity and gas at the same time. It is based on the BME680 module and you can use this sensor in your GPS, IoT devices or other device which needs those four parameters. [Click here](https://www.seeedstudio.com/Grove-Temperature%2C-Humidity%2C-Pressure-and-Gas-Sensor-(BME680)-p-3109.html) for the purchase.
 
