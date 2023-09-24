@@ -412,7 +412,137 @@ Now your Home Assistant dashboard will look like below
 - Now your dashboard will look like below
 
 
-## Grove - Temperature and Humidity Sensor (BME680)
+## Grove - Analog Microphone
+
+The Grove - Analog Microphone is a based on high-performance SiSonic MEMS technology, offering an extremely-low-noise, low-current, reliable, and small microphone to opensource hardware industry, and it has improved performance under severe conditions. [Click here](https://www.seeedstudio.com/Grove-Analog-Microphone-p-4593.html) for a purchase.
+
+### Setup Configuration
+
+- **Step 1.** Connect Grove - [Analog Microphone](https://www.seeedstudio.com/Grove-Analog-Microphone-p-4593.html) to the A0 connector on the Seeed Studio Expansion Base for XIAO
+
+- **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
+```
+esphome:
+  name: xiao-esp32c3
+  platformio_options:
+   board_build.flash_mode: dio
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+# Enable logging
+logger:
+ hardware_uart: UART0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: "UMASS fried chicken"
+  password: "Zacharyloveschicken"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Esp32C3 Fallback Hotspot"
+    password: "MoLTqZUvHwWI"
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO8
+  mosi_pin: GPIO10
+  miso_pin: GPIO9
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+  frequency: 1MHz
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO2
+    name: "Sound level"
+    device_class: sound
+```
+
+You can check more information about [Binary Sensor Component](https://esphome.io/components/binary_sensor/index.html#binary-sensor-component)
+
+### Visualize on Dashboard
+See before.
+
+## Grove - Digital PIR Sensor
+
+PIR sensor is an IR sensor to detect human motions. This Grove Digital PIR Sensor is the cheapest PIR sensor in the PIR families, however, it is able to give a quick response and generate a high signal from the "sig" Pin. [Click here](https://www.seeedstudio.com/Grove-Digital-PIR-Motion-Sensor-p-4524.html) for a purchase.
+
+### Setup Configuration
+
+- **Step 1.** Connect [Grove - Digital PIR Sensor](https://wiki.seeedstudio.com/Grove-Digital-PIR-Sensor/) to the D7 connector on the Seeed Studio Expansion Base for XIAO
+
+- **Step 2.** Inside the **xiao-esp32c3.yaml** file that we created before, change the file and push it OTA to XIAO ESP32C3
+
+```
+esphome:
+  name: xiao-esp32c3
+  platformio_options:
+   board_build.flash_mode: dio
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+# Enable logging
+logger:
+ hardware_uart: UART0
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+wifi:
+  ssid: "UMASS fried chicken"
+  password: "Zacharyloveschicken"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Esp32C3 Fallback Hotspot"
+    password: "MoLTqZUvHwWI"
+
+captive_portal:
+
+spi:
+  clk_pin: GPIO8
+  mosi_pin: GPIO10
+  miso_pin: GPIO9
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+  frequency: 1MHz
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO20
+    name: "PIR Sensor"
+    device_class: motion
+```
+
+### Visualize on Dashboard
+See before.
+
 
 
 
